@@ -13,10 +13,9 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFilesSelected }) => {
         onFilesSelected(acceptedFiles);
     };
 
-    // @ts-ignore
     const { getRootProps, getInputProps } = useDropzone({
         onDrop,
-        accept: '.xlsx',
+        accept: { 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'] },
     });
 
     return (
