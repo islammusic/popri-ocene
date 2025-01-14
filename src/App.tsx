@@ -27,17 +27,22 @@ const App: React.FC = () => {
         }
 
         const zipBlob = await zip.generateAsync({ type: 'blob' });
-        saveAs(zipBlob, 'processed-files.zip');
+        saveAs(zipBlob, 'obdelane-datoteke.zip');
 
         setIsProcessing(false);
     };
 
     return (
-        <div className="App" style={{ padding: '20px', textAlign: 'center' }}>
-            <h1>Excel Score Normalizer</h1>
-            <FileUpload onFilesSelected={setFiles} />
-            <button onClick={handleProcessFiles} disabled={isProcessing || files.length === 0} style={{ marginTop: '20px' }}>
-                {isProcessing ? 'Processing...' : 'Process Files'}
+        <div className="App" style={{padding: '20px', textAlign: 'center'}}>
+
+            <div style={{textAlign: 'left', marginBottom: '20px'}}>
+                <img src="/popri-ocene/popri-logo.jpg" alt="Logo" style={{width: '150px'}}/>
+            </div>
+            <h1>Normalizator ocen Popri</h1>
+            <FileUpload onFilesSelected={setFiles}/>
+            <button onClick={handleProcessFiles} disabled={isProcessing || files.length === 0}
+                    style={{marginTop: '20px'}}>
+                {isProcessing ? 'Obdelava...' : 'Obdelaj datoteke'}
             </button>
         </div>
     );

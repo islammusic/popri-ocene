@@ -14,14 +14,14 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFilesSelected }) => {
     };
 
     const { getRootProps, getInputProps } = useDropzone({
-        accept: '.xlsx',
         onDrop,
+        accept: '.xlsx',
     });
 
     return (
         <div {...getRootProps()} className="upload-zone" style={{ border: '2px dashed #ccc', padding: '20px', textAlign: 'center' }}>
             <input {...getInputProps()} />
-            <p>Drag & drop Excel files here, or click to select files</p>
+            <p>Povlecite in spustite Excel datoteke tukaj ali kliknite na Obdelaj datoteke</p>
             {uploadedFiles.length > 0 && (
                 <ul>
                     {uploadedFiles.map((file, index) => (
