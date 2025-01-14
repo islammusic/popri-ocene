@@ -14,6 +14,7 @@ export const normalizeExcelFile = async (file: File, range: Range): Promise<Blob
     const sheetName = workbook.SheetNames[0];
     const sheet = workbook.Sheets[sheetName];
 
+    // @ts-ignore
     const rangeLetters = XLSX.utils.decode_range(sheet['!ref'] || '');
     const scores: number[] = [];
 
